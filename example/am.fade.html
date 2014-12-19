@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .fade {
+            height: 100px;
+            width: 100px;
+            background: #c00;
+            opacity: 0;
+        }
+        .fade2 {
+            height: 100px;
+            width: 100px;
+            background: #c00;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="fade"></div>
+    <div class="fade2"></div>
+<script type="text/javascript" src="../src/am.base.js"></script>
+<script type="text/javascript" src="../src/am.type.js"></script>
+<script type="text/javascript" src="../src/am.dom.js"></script>
+<script type="text/javascript" src="../src/am.fade.js"></script>
+<script type="text/javascript">
+    var $D = AM.dom,
+        $F = AM.fade;
+    $F.fadein($D.className('fade')[0],1,1000);
+    $F.fadeout($D.className('fade2')[0],0,1000);
+</script>
+</body>
+</html>
