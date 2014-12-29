@@ -6,7 +6,7 @@
  * @version     0.0.1
  *
  * @depend      am.base.js  am.type.js   am.dom.js
- * 
+ * 本模块接受一个参数，为对象;里面包含4个资源，target ： 运动的对象;len ： 运动的距离;path ： 运动的方向;speed ： 运动的时间;
  */
 AM.$package(function (am) {
 
@@ -28,7 +28,7 @@ AM.$package(function (am) {
                 topLen = parseInt($G(target,'top')),
                 paths = null,
                 stopLen = null;
-
+            //这一部分是确认结束的位置
             if(path === 'left'){
                 stopLen = leftLen + len;
             }else if(path === 'right'){
@@ -38,37 +38,41 @@ AM.$package(function (am) {
             }else {
                 stopLen = topLen - len;
             }
+            //计算运动的时间及每一毫秒运动的距离
+            var time = speed / len;
+
+            //运动的过程
             setInterval(function(){
                 if(path === 'left'){
                     if(leftLen < stopLen){
-                        leftLen = leftLen + 3;
+                        leftLen = leftLen + 1;
                         $D.setStyle(target,'left',leftLen + 'px');
                     }else {
                         return;
                     }
                 }else if(path === 'right'){
                     if(leftLen > stopLen){
-                        leftLen = leftLen - 3;
+                        leftLen = leftLen - 1;
                         $D.setStyle(target,'left',leftLen + 'px');
                     }else {
                         return;
                     }
                 }else if(path === 'top'){
                     if(topLen < stopLen){
-                        topLen = topLen + 3;
+                        topLen = topLen + 1;
                         $D.setStyle(target,'top',topLen + 'px');
                     }else {
                         return;
                     }
                 }else if(path === 'bottom'){
                     if(topLen > stopLen){
-                        topLen = topLen -3;
+                        topLen = topLen - 1;
                         $D.setStyle(target,'top',topLen + 'px');
                     }else {
                         return;
                     }
                 }
-            },10);
+            },time);
         };
     }
 });
