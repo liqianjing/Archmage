@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 500px;
+            top: 300px;
+            border: 1px solid #ff4a00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box"></div>
+
+<!-- js -->
+<script type="text/javascript" src="../dest/Archmage-1.0.0.js"></script>
+<script type="text/javascript" src="../src/am.easing.js"></script>
+<script type="text/javascript">
+    var $D = AM.dom;
+    AM.easing({
+        target : $D.className('box')[0],
+        len : 200,
+        path : 'right',
+        speed : 2000
+    });
+</script>
+</body>
+</html>
